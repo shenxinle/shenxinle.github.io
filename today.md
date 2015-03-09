@@ -1,7 +1,7 @@
 ---
-layout: page
-title: About me
-permalink: /about/
+layout: post
+title: Today
+permalink: /today/
 ---
 
 这里是ShenXinle的个人站点，欢迎浏览、建议、拍砖……

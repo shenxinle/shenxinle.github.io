@@ -1,0 +1,99 @@
+---
+layout: post
+title:  HTML Ref
+date:   2015-01-03 10:17:23
+categories: jekyll update
+---
+HTML（Hyper Text Markup Language）不是编程语言，而是一套标记语言，使用标记标签（Markup Tag），标签由开始标签（opening tag）和结束标签（closing tag）构成，开始标签内即为元素名，也有些元素只有开始标签没有结束标签，比如&lt;br&gt;、&lt;hr&gt;。
+
+<h2>一、head</h2>
+{% highlight ruby %}
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="xxx">
+  <base target="_blank"> 
+  <title>Welcome to Jekyll</title>
+  <link rel="stylesheet" href="/css/main.css">
+{% endhighlight %}
+
+<h2>二、body</h2>
+
+<h3>HTML结构</h3>
+    header, nav, main, article(独立容器), section(一般区块), aside(附注栏、侧栏、重要引述), footer.
+<h3>文本</h3>
+    p, small, strong, em, (figure, figcaption), cite, (q, blockquote)[cite="url" lang="en"], time, abbr[title="xxx"], sup, sub, address, del, ins(插入), code, pre(预格式化), mark, br, span, meter, progress.
+<h3>链接</h3>
+  {% highlight ruby %}
+    <a href="https://shenxinle2009.wordpress.com" target="_blank">My wordpress</a>
+    <a href="#code">跳到code</a>   //命名锚，链接到name="code"的锚
+    <a href="mailto:shenxinle2009@163.com?cc=shenxinle2009@gmail.com&subject=Hello&body=ByeBye.">给shen发邮件</a>
+  {% endhighlight %}
+<h3>图片</h3>
+    <img src="images/baby.jpg" alt="baby's picture" >
+<h3>列表</h3>
+    ul+ol>li, dl>dt>dd [list-style-type: disc/circle/square, upper/lower-roman/alpha,decimal,none]
+<h3>表格</h3>
+    table[cellspacing="10" cellpadding="5" border-collapse: collapse]>caption[text-align]+tr>(th+td)[rowspan="2" colspan="3"]
+<h3>表单</h3>
+  {% highlight ruby %}
+    form[action="return.php" method="get/post"]
+    fieldset>legend
+    label[for="idlabel"]
+    input[type="text/password/radio/checkbox/button/submit /email/url/tel/number/range/search"]
+      +[value="xx" placeholder="xx" required autofocus size="n" maxlength="n" readonly disabled]
+      +for type="tel", set placeholder="xxx-xxxx-xxxx" pattern="\d{3}-\d{4}-\d{4}"
+      +can set autocomplete="off" for input or form to avoid the broswer remember what you input. 
+      +<input type="image" src="/images/xx.png" alt="xxx" width="xx" height="xx">
+    select>optgroup>option
+    textarea[cols="30" rows="4"]
+    
+    upload file: form[enctype="multipart/form-data"], input[type="file" multiple(upload more than one)], others just as normal.
+  {% endhighlight %}
+<h3>Video and Audio</h3>
+  {% highlight ruby %}
+    video属性：autoplay, controls, loop, preload, src, height, width.
+    <video src="/F:/Video/elena.mp4" width="320" height="240" controls="controls">
+      Your Browser does not support the video tag.
+    </video>
+    or
+	<video width="320" height="240" controls="controls">
+      <source src="movie.ogg" type="video/ogg">
+      <source src="movie.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+
+    audio属性：autoplay, controls, loop, preload, src
+    <audio src="Sleep Away.mp3" controls="controls"></audio>
+  {% endhighlight %} 
+<h3>Canvas</h3>
+  {% highlight ruby %}
+      <canvas id="canvas" width="500px" height="500px"></canvas>
+      <script>
+          var c=document.getElementById("canvas");
+          var cxt=c.getContext("2d");
+     画矩形
+          cxt.fillStyle="#f00";
+          cxt.fillRect(0,0,150,75);
+     画直线
+          cxt.moveTo(150,100);
+          cxt.lineTo(300,250);
+          cxt.lineTo(200,350);
+          cxt.stroke();
+     画圆形
+          cxt.beginPath();
+          cxt.arc(400,50,25,0,Math.PI*2,true);
+          cxt.closePath();
+          cxt.fill();
+     画渐变
+          var grd=cxt.createLinearGradient(100,100,100,250);
+          grd.addColorStop(0,"#f00");
+          grd.addColorStop(1,"#00f");
+          cxt.fillStyle=grd;
+          cxt.fillRect(100,100,150,150);
+     插图片
+          var img=new Image();
+          img.src="i/baby.jpg";
+          cxt.drawImage(img,0,0);
+      </script>
+  {% endhighlight %}
