@@ -6,9 +6,129 @@
 </description>
     <link>http://shenxinle.github.io/</link>
     <atom:link href="http://shenxinle.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 09 Mar 2015 21:44:12 +0800</pubDate>
-    <lastBuildDate>Mon, 09 Mar 2015 21:44:12 +0800</lastBuildDate>
+    <pubDate>Fri, 13 Mar 2015 03:08:34 +0800</pubDate>
+    <lastBuildDate>Fri, 13 Mar 2015 03:08:34 +0800</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
+    
+      <item>
+        <title>RegExp in JavaScript</title>
+        <description>&lt;h2&gt;RegExp定义&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;字面量形式：&lt;code&gt;var reg=/javascript/i;&lt;/code&gt;&lt;br /&gt;&lt;/li&gt;
+  &lt;li&gt;构造函数形式：&lt;code&gt;var reg=new RegExp(&quot;javascript&quot;,&quot;i&quot;);&lt;/code&gt;&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2&gt;字符类&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;code&gt;[...]&lt;/code&gt; 方括号内任意字符 &lt;br /&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code&gt;[^...]&lt;/code&gt; 不在方括号内的任意字符 &lt;br /&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code&gt;.&lt;/code&gt; 除换行符和其他Unicode行终止符之外的任意字符 &lt;br /&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code&gt;\w&lt;/code&gt; ASCII字符，等价于&lt;code&gt;[a-zA-Z0-9]&lt;/code&gt; &lt;br /&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code&gt;\W&lt;/code&gt; 等价于&lt;code&gt;[^a-zA-Z0-9]&lt;/code&gt; &lt;br /&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code&gt;\s&lt;/code&gt; 任何Unicode空白符 &lt;br /&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code&gt;\S&lt;/code&gt; 任何非Unicode空白符的字符 &lt;br /&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code&gt;\d&lt;/code&gt; 数字，等价于&lt;code&gt;[0-9]&lt;/code&gt; &lt;br /&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code&gt;\D&lt;/code&gt; 等价于&lt;code&gt;[^0-9]&lt;/code&gt;  &lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2&gt;重复&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;code&gt;{n,m}&lt;/code&gt; 匹配前一项n到m次（包含n、m） &lt;br /&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code&gt;{n,}&lt;/code&gt; 匹配前一项大于等于n次 &lt;br /&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code&gt;{n}&lt;/code&gt; 匹配前一项n次 &lt;br /&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code&gt;？&lt;/code&gt; 匹配前一项0或1次 &lt;br /&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code&gt;+&lt;/code&gt; 匹配前一项1次及以上 &lt;br /&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code&gt;*&lt;/code&gt; 匹配前一项0次及以上 &lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;上述表示默认为贪婪模式，即尽可能多地匹配字符数，如&lt;code&gt;/a+/&lt;/code&gt;会匹配&lt;code&gt;&quot;aaa&quot;&lt;/code&gt;中的三个字符。在正则表达式中待匹配的字符后面跟随一个&lt;code&gt;?&lt;/code&gt;即可改为非贪婪模式，即尽可能匹配少的字符，如&lt;code&gt;/a+?/&lt;/code&gt;只匹配&lt;code&gt;&quot;aaa&quot;&lt;/code&gt;中的第一个字符。另外，正则表达式是从左到右匹配的，所以&lt;code&gt;/a+?b/&lt;/code&gt;还是会匹配&lt;code&gt;&quot;aaab&quot;&lt;/code&gt;的全部字符。&lt;/p&gt;
+
+&lt;h2&gt;选择、分组和引用&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;code&gt;|&lt;/code&gt; 用于表示或选择，如 &lt;code&gt;/a|b/&lt;/code&gt; 会先查找字符串是否有a,没有的话再查找是否有b。 &lt;br /&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code&gt;( )&lt;/code&gt; 括号的作用有三，一是把一些字符组合为子表达式； 二是记忆/捕获与括号内容相匹配的字符； 三是引用，在正则表达式的后面可以通过&lt;code&gt;\n (n为正整数)&lt;/code&gt;来引用前面括号中的内容， 如&lt;code&gt;/(Java)Script\s+is\s+more\s+fun\s+than\s+\1&lt;/code&gt;最后的&lt;code&gt;\1&lt;/code&gt;即指代前面括号中的&lt;code&gt;Java&lt;/code&gt;。引用的一个常见用法是匹配引号，如&lt;code&gt;/([&#39;&quot;])[^&#39;&quot;]*\1/&lt;/code&gt; 。另外，正则表达式不允许双引号括起的内容中有单引号，反之亦然。&lt;br /&gt;&lt;/li&gt;
+  &lt;li&gt;(?: ) 只起()三个作用中的第一个作用。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2&gt;指定匹配的位置（类似于锚）&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;code&gt;^&lt;/code&gt; 匹配字符串开始 &lt;br /&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code&gt;$&lt;/code&gt; 匹配字符串结束 &lt;br /&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code&gt;\b&lt;/code&gt; 匹配一个单词的边界 &lt;br /&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code&gt;\B&lt;/code&gt; 与&lt;code&gt;\b&lt;/code&gt;相反，匹配一个单词的非边界处 &lt;br /&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code&gt;x(?=y)&lt;/code&gt; 仅当x后面直接跟着y时,匹配x &lt;br /&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code&gt;x(?!y)&lt;/code&gt; 仅当x后面不直接跟着y时,匹配x &lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2&gt;修饰符&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;code&gt;i&lt;/code&gt; ingnoreCase，忽略大小写 &lt;br /&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code&gt;g&lt;/code&gt; global，全局匹配 &lt;br /&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code&gt;m&lt;/code&gt; multiline，多行匹配，在这种模式下，&lt;code&gt;^&lt;/code&gt;可以匹配换行符&lt;code&gt;\n&lt;/code&gt;后一行的开头，&lt;code&gt;$&lt;/code&gt;可以匹配换行符&lt;code&gt;\n&lt;/code&gt;这一行的结尾， &lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2&gt;用于模式匹配的String方法&lt;/h2&gt;
+&lt;p&gt;search(), replace(), match(), split()。 &lt;br /&gt;
+1. &lt;code&gt;&quot;JavaScript&quot;.search(/script/i);  //=&amp;gt;4&lt;/code&gt; 一个参数，为RegExp或String，但String会自动转换为RegExp。返回匹配的第一个子串的index值，未匹配则返回 -1。 &lt;br /&gt;
+2. &lt;code&gt;&quot;Java&quot;.replace(/java/ig,&quot;JavaScript&quot;);  //=&amp;gt;JavaScript&lt;/code&gt; 两个参数，第一个参数可以是RegExp，也可以是String，不会自动转换。若RegExp是global的，则匹配的全部替换，否则只替换匹配到的第一个子串。 &lt;br /&gt;
+3. &lt;code&gt;&quot;1add2==1add2&quot;.match(/\d(\w+)\d/g); //=&amp;gt;[&quot;1add2&quot;,&quot;1add2&quot;] &lt;/code&gt;，&lt;code&gt;&quot;1add2==1add2&quot;.match(/\d(\w+)\d/); //=&amp;gt;[&quot;1add2&quot;,&quot;add&quot;] &lt;/code&gt;，global模式全匹配，否则匹配第一个和记忆的内容。未匹配则返回null。 &lt;br /&gt;
+4. &lt;code&gt;&quot;1, 2, 3, 4&quot;.split(/\s*,\s*/); //=&amp;gt;[&quot;1&quot;,&quot;2&quot;,&quot;3&quot;,&quot;4&quot;]&lt;/code&gt; 分割字符串为数组。&lt;/p&gt;
+
+&lt;h2&gt;RegExp的属性和方法&lt;/h2&gt;
+&lt;h3&gt;属性&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;code&gt;source&lt;/code&gt; 只读，包含正则表达式的文本 &lt;br /&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code&gt;global&lt;/code&gt; 只读，即带修饰符&lt;code&gt;g&lt;/code&gt; &lt;br /&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code&gt;ignoreCase&lt;/code&gt; 只读，即带修饰符&lt;code&gt;i&lt;/code&gt; &lt;br /&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code&gt;multiline&lt;/code&gt; 只读，即带修饰符&lt;code&gt;m&lt;/code&gt; &lt;br /&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code&gt;lastIndex&lt;/code&gt; 可读写，字符串下一次开始检索的位置 &lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;方法&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;exec()，未匹配时返回 null， 非 global 时返回匹配的第一个及括号中记忆的， global 时返回 lastIndex 后匹配的第一个及括号中记忆的。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;reg&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/Ja(va)\S/&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;JavaScript is not Java!&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;reg&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;exec&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;reg&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;exec&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;reg&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;exec&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;reg&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;exec&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
+
+&lt;span class=&quot;o&quot;&gt;=&amp;gt;[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;JavaS&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;va&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;=&amp;gt;[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;JavaS&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;va&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;=&amp;gt;[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;JavaS&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;va&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;=&amp;gt;[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;JavaS&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;va&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;reg&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/Ja(va)\S/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;g&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;JavaScript is not Java!&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;reg&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;exec&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;reg&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;exec&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;reg&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;exec&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;reg&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;exec&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
+
+&lt;span class=&quot;o&quot;&gt;=&amp;gt;[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;JavaS&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;va&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;=&amp;gt;[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;Java!&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;va&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;null&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;=&amp;gt;[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;JavaS&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;va&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;对非 global 来说每次匹配后 lastIndex 不变，还是为 0 。但对 global 来说，每次匹配后 lastIndex 变为匹配子串的后一个字符的位置，直到未匹配到之后再重新变为 0 。lastIndex可以手动改变。 &lt;br /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;test()， 未匹配到时返回 null， 匹配到返回 true。其 lastIndex 与 global 关系类似 exec()。&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Wed, 11 Mar 2015 17:17:23 +0800</pubDate>
+        <link>http://shenxinle.github.io/jekyll/update/2015/03/11/RegExp-in-JavaScript</link>
+        <guid isPermaLink="true">http://shenxinle.github.io/jekyll/update/2015/03/11/RegExp-in-JavaScript</guid>
+        
+        
+        <category>jekyll</category>
+        
+        <category>update</category>
+        
+      </item>
     
       <item>
         <title>Welcome to Jekyll</title>
@@ -28,8 +148,8 @@
 
 </description>
         <pubDate>Mon, 09 Mar 2015 12:17:23 +0800</pubDate>
-        <link>http://shenxinle.github.io/jekyll/update/2015/03/09/welcome-to-jekyll.html</link>
-        <guid isPermaLink="true">http://shenxinle.github.io/jekyll/update/2015/03/09/welcome-to-jekyll.html</guid>
+        <link>http://shenxinle.github.io/jekyll/update/2015/03/09/welcome-to-jekyll</link>
+        <guid isPermaLink="true">http://shenxinle.github.io/jekyll/update/2015/03/09/welcome-to-jekyll</guid>
         
         
         <category>jekyll</category>
@@ -101,8 +221,8 @@
 
 </description>
         <pubDate>Thu, 08 Jan 2015 23:17:23 +0800</pubDate>
-        <link>http://shenxinle.github.io/jekyll/update/2015/01/08/CSS-Ref.html</link>
-        <guid isPermaLink="true">http://shenxinle.github.io/jekyll/update/2015/01/08/CSS-Ref.html</guid>
+        <link>http://shenxinle.github.io/jekyll/update/2015/01/08/CSS-Ref</link>
+        <guid isPermaLink="true">http://shenxinle.github.io/jekyll/update/2015/01/08/CSS-Ref</guid>
         
         
         <category>jekyll</category>
@@ -211,8 +331,8 @@
 &lt;span class=&quot;s2&quot;&gt;      &amp;lt;/script&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 </description>
         <pubDate>Sat, 03 Jan 2015 18:17:23 +0800</pubDate>
-        <link>http://shenxinle.github.io/jekyll/update/2015/01/03/HTML-Ref.html</link>
-        <guid isPermaLink="true">http://shenxinle.github.io/jekyll/update/2015/01/03/HTML-Ref.html</guid>
+        <link>http://shenxinle.github.io/jekyll/update/2015/01/03/HTML-Ref</link>
+        <guid isPermaLink="true">http://shenxinle.github.io/jekyll/update/2015/01/03/HTML-Ref</guid>
         
         
         <category>jekyll</category>

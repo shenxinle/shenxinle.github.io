@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Card Matching Game</title>
+	<script src="modernizr.custom.js"></script>
+	<link rel="stylesheet" href="matchgame.css">
+</head>
+<body>
+	<header>
+		<h1>纸牌配对游戏</h1>
+	</header>
+	<section id="game">
+		<div id="cards">
+			<div class="card">
+				<div class="face front"></div>
+				<div class="face back"></div>
+			</div>
+		</div>
+	</section>	
+	<footer>
+		<p>说明：纸牌配对游戏，连续点击两张纸牌，内容一样即可消去。</p>
+		<p class="miniFont">注：因使用CSS3 transform属性，低版本的浏览器会缺少翻转效果。建议使用Firefox浏览器体验。</p>
+	</footer>
+	<script src="jquery-1.11.2.min.js"></script>
+	<script src="matchgame.js"></script>
+</body>
+</html>

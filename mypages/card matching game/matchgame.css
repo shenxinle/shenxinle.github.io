@@ -1,0 +1,65 @@
+body{
+	background: #a46740;
+	font-family: Helvetica,Arial,sans-serif;
+	text-align:center;
+	font-size: 16px;
+}
+#game{
+	margin:0 auto;
+	max-width:500px;
+	background: #232;
+	border-radius:10px;
+	border:1px solid #666;
+	
+}
+#cards{
+	margin:30px 60px;
+	position:relative;
+	width:380px;
+	height:400px;
+}
+.card{
+	width:80px;
+	height:120px;
+	position:absolute;
+}
+.face{
+	border-radius:10px;
+	width:100%;
+	height:100%;
+	position:absolute;
+	transition-property:transform z-index;
+	transition-duration:.5s;
+	transition-timing-function: ease;
+}
+.front{
+	background: #999 url(card.png) -160px -480px;
+	z-index:10;
+}
+.back{
+	background: #efefef url(card.png);
+	transform:rotate3d(0,1,0,-180deg);
+	z-index:8;
+}
+.card-flipped .front{
+	transform:rotate3d(0,1,0,180deg);
+	z-index:8;
+}
+.card-flipped .back{
+	transform:rotate3d(0,1,0,0deg);
+	z-index:10;
+}
+.card-removed{
+	display: none;
+}
+.AJ{background-position: -800px 0;}
+.AQ{background-position: -880px 0;}
+.AK{background-position: -960px 0;}
+.BJ{background-position: -800px -120px;}
+.BQ{background-position: -880px -120px;}
+.BK{background-position: -960px -120px;}
+
+.miniFont{
+	font-size: 0.8em;
+	color: #333;
+}

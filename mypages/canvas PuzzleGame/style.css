@@ -1,0 +1,17 @@
+body{
+	text-align:center;
+	font-family: Helvetica,Arial,sans-serif;
+	font-size: 16px;
+	color: #222;
+}
+header p{
+	font-weight: 600;
+}
+canvas{
+	background: #333;
+	margin:0 auto;
+}
+.miniFont{
+	font-size: .8em;
+	color: #333;
+}

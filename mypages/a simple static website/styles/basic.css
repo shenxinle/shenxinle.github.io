@@ -1,0 +1,181 @@
+/*Reset*/
+body,header,nav,ul,li,article,section,h1,h2,p{
+	margin:0;
+	padding:0;
+}
+
+/*Basic style*/
+body{
+	margin:0 10%;
+	background: #334 url(../images/background.gif) fixed top left repeat-x;
+	max-width:80em;
+	font-size:16px;
+	font-family: Helvetica,Arial,sans-serif;
+	color:#fb5;
+}
+a{
+	font-weight:bold;
+	text-decoration:none;
+}
+a:link{
+	color:#445;
+	background-color: #eb6;
+}
+a:visited{
+	color:#345;
+	background-color: #eb6;
+}
+a:hover{
+	color: #667;
+	background-color: #fb5;
+}
+a:active{
+	color: #778;
+	background-color: #ec8;
+}
+h1,h2,h3{
+	font-family:"Georgia","Times New Roman",sans-serif;
+}
+h1{
+	font:2.4em normal;
+}
+h2{
+	font:1.8em normal;
+	margin-top:1em;
+}
+h3{
+	font:1.4em normal;
+	margin-top:1em;
+}
+
+/*Header*/
+header{
+	color: #ec8;
+	background: #334 url(../images/guitarist.gif) no-repeat top right;
+	border:.1em solid #667;
+	border-bottom-width:0;
+}
+#about header{
+	background-image:url(../images/lineup.gif);
+}
+#photos header{
+	background-image:url(../images/basshead.gif);
+}
+#live header{
+	background-image:url(../images/bassist.gif);
+}
+#contact header{
+	background-image:url(../images/drummer.gif);
+}
+header nav{
+	color: #455;
+	border-color: #667;
+	font-family:"Lucida Grande","Helvetica","Arial",sans-serif;
+	background: #789 url(../images/navbar.gif) bottom left repeat-x;
+	border-style:solid;
+	border-width:0 .1em;
+	padding-left:10%;
+}
+header nav ul{
+	border-color: #99a;
+	width:100%;
+	overflow:hidden;
+	border-left-style:solid;
+	border-left-width:.1em;
+}
+header nav  li{
+	display:inline;
+}
+header nav  li a{
+	display:inline-block;
+	float:left;
+	padding:.5em 2em;
+	border-right:.1em solid;
+}
+header nav a.here:link,header nav a.here:visited{
+	color: #eef;
+	background-color: #transparent;
+	border-color: #99a;
+}
+header nav a.here:hover{
+	color: #445;
+	background-color: #eb6;
+}
+header nav a.here:active{
+	color: #667;
+	background-color: #ec8;
+}
+
+/*Article*/
+article{
+	color: #223;
+	background-color: #edc;
+	border:.1em solid #667;
+	border-top-width:0;
+	padding:2em 10%;
+	line-height:1.8em;
+}
+article img{
+	border:.1em solid #ba9;
+	outline:.1em solid #dcb;
+}
+article p{
+	margin:1em 0;
+}
+
+#jay,#domsters{
+	display:none;
+}
+#imagegallery a{
+	background-color: #transparent;
+}
+#imagegallery li{
+	list-style-type:none;
+}
+th{
+	color:#edc;
+	background-color: #455;
+}
+th,td{
+	padding:.5em 3em;
+}
+tr td{
+	color:#223;
+	background-color: #eb6;
+}
+tr.odd td{
+	color:#223;
+	background-color: #ee8;
+}
+tr.highlight td{
+	color: #223;
+	background-color: #cba;
+}
+
+textarea{
+	font-family:"Helvetica","Arial",sans-serif;
+}
+dt{margin-right:1em;}
+dd{margin-right:3em;}
+dt,dd{
+	float:left;
+}
+#slideshow{
+	width:150px;
+	height:150px;
+	position:relative;
+	overflow:hidden;
+}
+#preview{
+	position:absolute;
+}
+#imgframe{
+	z-index:1;
+	position:absolute;
+	left:0;
+	top:0;
+	border-width:0;
+}
+#placeholder{
+	max-width: 100%;
+}
