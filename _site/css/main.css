@@ -131,6 +131,9 @@ pre {
   display: table;
   clear: both; }
 
+hr {
+  margin: 2em 0; }
+
 /**
  * Site header
  */
