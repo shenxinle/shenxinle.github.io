@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  HTML Ref
-date:   2015-01-03 10:17:23
+date:   2015-03-03 10:17:23
 categories: jekyll update
 ---
 HTML（Hyper Text Markup Language）不是编程语言，而是一套标记语言，使用标记标签（Markup Tag），标签由开始标签（opening tag）和结束标签（closing tag）构成，开始标签内即为元素名，也有些元素只有开始标签没有结束标签，比如&lt;br&gt;、&lt;hr&gt;。

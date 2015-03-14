@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  CSS Ref
-date:   2015-01-08 15:17:23
+date:   2015-03-08 15:17:23
 categories: jekyll update
 ---
 CSS(Cascading Style Sheets，层叠样式表) 实现了将样式与内容分离。样式的几种设置方法
