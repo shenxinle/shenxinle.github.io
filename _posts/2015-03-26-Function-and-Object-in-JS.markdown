@@ -45,7 +45,7 @@ Object.method("add",function (){
 document.writeln({name:"qing"}.add()+"<br>");	// "qing"
 {% endhighlight %}
 
-既然 String、Number、Function、Array、Object 都能够使用 method() 方法，肯定是继承自 Function 的原型对象 Function.prototype, 那么可以简单的认为 String、Number、Function、Array、Object 都是 Function 的实体，验证如下
+既然 String、Number、Function、Array、Object 都能够使用 method() 方法，肯定是继承自 Function 的原型对象 Function.prototype, 那么可以简单的认为 String、Number、Function、Array、Object 都是 Function 的实例，验证如下
 
 {% highlight ruby %}
 String instanceof Function	//true
@@ -55,7 +55,7 @@ Array instanceof Function	//true
 Object instanceof Function	//true
 {% endhighlight %}
 
-另一方面，下面的代码构造的method()方法对 String、Number、Function、Array、Object 也都是有效的，所以 String、Number、Function、Array、Object 也可以认为都是 Object 的实体
+另一方面，下面的代码构造的method()方法对 String、Number、Function、Array、Object 也都是有效的，所以 String、Number、Function、Array、Object 也可以认为都是 Object 的实例
 
 {% highlight ruby %}
 Object.prototype.method=function (name,func){
