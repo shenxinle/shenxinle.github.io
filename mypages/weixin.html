@@ -17,11 +17,6 @@
    </div>
   <script>
 
-  var readyFunc = function onBridgeReady() {
-      var curid;
-      var curAudioId;
-      var playStatus = 0;
-
       // 关闭当前webview窗口 - closeWindow
       document.querySelector('#closeWindow').addEventListener('click', function(e){
       	WeixinJSBridge.invoke('closeWindow',{
@@ -31,14 +26,6 @@
    
          });
       });    
-      
-  }
-
-  if (typeof WeixinJSBridge === "undefined") {
-    document.addEventListener('WeixinJSBridgeReady', readyFunc, false);
-  } else {
-    readyFunc();
-  }
 </script> 
 </article>     
 </body>
