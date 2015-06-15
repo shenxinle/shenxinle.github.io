@@ -26,7 +26,9 @@
    
          });
       });
-      document.body.appendChild(navigator.userAgent);
+      var p=document.createElement('p');
+      p.html=navigator.userAgent;
+      document.body.appendChild(p);
 </script> 
 </article>     
 </body>
