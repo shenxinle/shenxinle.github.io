@@ -5,66 +5,73 @@ date:   2015-03-08 15:17:23
 categories: jekyll update
 ---
 CSS(Cascading Style Sheets，层叠样式表) 实现了将样式与内容分离。样式的几种设置方法
-  +浏览器缺省设置
-  +外部样式表      // <link rel="stylesheet" type="text/css" href="style.css"  />
-  +内部样式表（位于 <head> 标签内部）    //<style type="text/css">......</style>
-  +内联样式（在 HTML 元素内部）   //style="color:red; font-size:14px;"
+
+- 浏览器缺省设置
+- 外部样式表      //   &lt;link rel="stylesheet" type="text/css" href="style.css" /&gt;
+- 内部样式表（位于 <head> 标签内部）    //   &lt;style type="text/css">......&lt;/style>
+- 内联样式（在 HTML 元素内部）   // style="color:red; font-size:14px;"
 
 <h2>background</h2>
-  {% highlight ruby %}
-    background:red url(i/baby.jpg) no-repeat 0 0 fixed;
-      background-color:red/#ff0000/rgb(255,0,0) ;  //默认值为transparent.
-      background-image:url(i/baby.jpg);
-      background-repeat:repeat/repeat-x/repeat-y/no-repeat;       //默认为repeat.
-      background-position:100px 50px/center/left/right/top/bottom;
-      background-attachment:fixed/scroll;
-  {% endhighlight %}
+
+{% highlight ruby %}
+background:red url(i/baby.jpg) no-repeat 0 0 fixed;
+background-color:red/#ff0000/rgb(255,0,0) ;  //默认值为transparent.
+background-image:url(i/baby.jpg);
+background-repeat:repeat/repeat-x/repeat-y/no-repeat;       //默认为repeat.
+background-position:100px 50px/center/left/right/top/bottom;
+background-attachment:fixed/scroll;
+{% endhighlight %}
 
 <h2>text</h2>
-  {% highlight ruby %}
-    color:red;
-    text-align:center/left/right;
-    line-height:30px;
-    direction:ltr/rtl;
-    text-indent:5em/20%; 
-    word-spacing:5px/1em;
-    letter-spacing:10px/2em;
-    text-transform:none/uppercase/lowercase/capitalize;
-    text-decoration:none/underline/overline/line-through;
-    white-space:normal/pre/nowrap;
-  {% endhighlight %}
+
+{% highlight ruby %}
+color:red;
+text-align:center/left/right;
+line-height:30px;
+direction:ltr/rtl;
+text-indent:5em/20%; 
+word-spacing:5px/1em;
+letter-spacing:10px/2em;
+text-transform:none/uppercase/lowercase/capitalize;
+text-decoration:none/underline/overline/line-through;
+white-space:normal/pre/nowrap;
+{% endhighlight %}
 
 <h2>font</h2>
-  {% highlight ruby %}
-    font: Arial,Calibri 12px/30px italic bold;
-    font-family
-    font-size
-    font-style:normal/italic/oblique;
-    font-weight:bold/normal/lighter;
-  {% endhighlight %}
+
+{% highlight ruby %}
+font: Arial,Calibri 12px/30px italic bold;
+font-family
+font-size
+font-style:normal/italic/oblique;
+font-weight:bold/normal/lighter;
+{% endhighlight %}
 
 <h2>list</h2>
-  {% highlight ruby %}
-    list-style:url(i/babay.jpg) square inside;
-    list-style-type:square/circle/disc/none  or decimal/lower-alpha/upper-alpha/lower-roman/upper-roman;
-    list-style-image:(i/baby.jpg);
-    list-style-position:inside/outside;
-  {% endhighlight %}
+
+{% highlight ruby %}
+list-style:url(i/babay.jpg) square inside;
+list-style-type:square/circle/disc/none  or decimal/lower-alpha/upper-alpha/lower-roman/upper-roman;
+list-style-image:(i/baby.jpg);
+list-style-position:inside/outside;
+{% endhighlight %}
 
 <h2>table</h2>
-  {% highlight ruby %}
-    border-callapse:callapse/separate;
-    border-spacing:10px;
-    empty-cells:show;
-    caption-side:top/bottom;
-  {% endhighlight %}
+
+{% highlight ruby %}
+border-callapse:callapse/separate;
+border-spacing:10px;
+empty-cells:show;
+caption-side:top/bottom;
+{% endhighlight %}
 
 <h2>other</h2>
-  {% highlight ruby %}
-    border:1px solid  red;
-    outline:2px dotted/dashed greed;    //位于border外围。
 
-    position:relative/absolute/fixed;
-    float:left/right;
-    clear:both/left/right;
-  {% endhighlight %}
+{% highlight ruby %}
+border:1px solid  red;
+outline:2px dotted/dashed greed;    //位于border外围。
+
+position:relative/absolute/fixed;
+float:left/right;
+clear:both/left/right;
+{% endhighlight %}

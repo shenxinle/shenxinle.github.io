@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  icon
+title:  Icon
 categories: jekyll update
 ---
 

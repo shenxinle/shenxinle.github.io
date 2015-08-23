@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  html5
+title: HTML5
 categories: jekyll update
 ---
 ## New Element ##
@@ -10,76 +10,76 @@ categories: jekyll update
 -webkit- (Android 4.0+, iOS)支持较好
 
 {% highlight ruby %}
-    <progress value="30" max="100"></progress>
+<progress value="30" max="100"></progress>
 
-    /* CSS */
-    progress {
-        width: 320px;
-        height: 32px;
-        border: 0;
-    }
-    progress::-webkit-progress-bar {
-        background-color: #000;
-    }
-    progress::-webkit-progress-value {
-        background-color: #0f0;
-    }
-    progress::-moz-progress-bar {
-        background-color: #0f0;
-    }
+/* CSS */
+progress {
+    width: 320px;
+    height: 32px;
+    border: 0;
+}
+progress::-webkit-progress-bar {
+    background-color: #000;
+}
+progress::-webkit-progress-value {
+    background-color: #0f0;
+}
+progress::-moz-progress-bar {
+    background-color: #0f0;
+}
 {% endhighlight %}
 
 ### Geolocation ###
 
 {% highlight ruby %}
-    /* args1: 默认false非高精度, args2: 多少毫秒后停止尝试获取定位数据, args3: 位置数据有效期 */
-    var positionOptions = {
-        enableHighAccuracy: false,
-        timeout: 90000,
-        maximumAge: 120000
-    }
+/* args1: 默认false非高精度, args2: 多少毫秒后停止尝试获取定位数据, args3: 位置数据有效期 */
+var positionOptions = {
+    enableHighAccuracy: false,
+    timeout: 90000,
+    maximumAge: 120000
+}
 
-    /* use */
-    navigator.geolocation.getCurrentPosition(success, fail[, positionOptions]);
-    /* or */
-    var geo = navigator.geolocation.watchPosition(success, fial[, positionOptions]);
-    setTimeout(function (){
-        navigator.geolocation.clearWatch(geo);
-    }, 300000);
+/* use */
+navigator.geolocation.getCurrentPosition(success, fail[, positionOptions]);
+/* or */
+var geo = navigator.geolocation.watchPosition(success, fial[, positionOptions]);
+setTimeout(function (){
+    navigator.geolocation.clearWatch(geo);
+}, 300000);
 
-    function success(position){
-        var lat = position.coords.latitude; // 纬度
-        var lon = position.coords.longtitude; // 经度
-        var accuracy = position.coords.accuracy; // 精度(m)
-        var altitude = position.coords.altitude; // 海拔高度(m)
-        var altitudeAccuracy = position.coords.altitudeAccuracy; // 海拔高度精度(m)
-        var heading = position.coords.heading; // 与上一个位置相比，设备从正北顺时针前进的方位(度)
-        var speed = position.coords.speed; // 速度(m/s)
-        var timestamp = position.timestamp; // 该位置返回的日期时间，类似Date()
-        console.log('You are at '+lat+' latitude, and '+lon+' longtitude');
+function success(position){
+    var lat = position.coords.latitude; // 纬度
+    var lon = position.coords.longtitude; // 经度
+    var accuracy = position.coords.accuracy; // 精度(m)
+    var altitude = position.coords.altitude; // 海拔高度(m)
+    var altitudeAccuracy = position.coords.altitudeAccuracy; // 海拔高度精度(m)
+    var heading = position.coords.heading; // 与上一个位置相比，设备从正北顺时针前进的方位(度)
+    var speed = position.coords.speed; // 速度(m/s)
+    var timestamp = position.timestamp; // 该位置返回的日期时间，类似Date()
+    console.log('You are at '+lat+' latitude, and '+lon+' longtitude');
+}
+function fail(error){
+    switch(error.code){
+        case 1: console.log('location services denied!'); break;
+        case 2: console.log('could not contact location services network or satellites!'); break;
+        case 3: console.log('location services timeout!'); break;
+        case 4: console.log('unknown error!'); break;
+        default: console.log('god!'); break;
     }
-    function fail(error){
-        switch(error.code){
-            case 1: console.log('location services denied!'); break;
-            case 2: console.log('could not contact location services network or satellites!'); break;
-            case 3: console.log('location services timeout!'); break;
-            case 4: console.log('unknown error!'); break;
-            default: console.log('god!'); break;
-        }
-    }
+}
 {% endhighlight %}
 
 ### History ###
 
 {% highlight ruby %}
-    history.back();
-    history.forward();
-    history.go(index);
+history.back();
+history.forward();
+history.go(index);
 
-    /* args1, args2通常设为 null */
-    history.pushState(stateObject, title, url);
-    history.replaceState(stateObject, title, url);
-    window.onpopstate = function (){
-        //历史记录前进、后退时触发
-    }
+/* args1, args2通常设为 null */
+history.pushState(stateObject, title, url);
+history.replaceState(stateObject, title, url);
+window.onpopstate = function (){
+    //历史记录前进、后退时触发
+}
 {% endhighlight %}
