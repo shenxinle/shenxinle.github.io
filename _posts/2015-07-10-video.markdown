@@ -1,0 +1,51 @@
+---
+layout: post
+title:  video
+categories: jekyll update
+---
+
+## 视频插入 ##
+
+### 1.兼容各种浏览器-腾讯视频 ###
+
+{% highlight ruby %}
+    <div class="video" id="video"></div>
+    <input type="hidden" name="video_id" value="video_id" />
+    <script src="http://qzs.qq.com/tencentvideo_v1/js/tvp/tvp.player.js" charset="utf-8"></script>
+
+    <script>
+    (function (){
+        var video = new tvp.VideoInfo();
+        var video_id = $('[name="video_id"]').val();
+        if(video_id=="" || video_id==null){
+            return null;
+        }
+        video.setVid(video_id);//视频vid
+        var videoWidth=document.getElementById('video').clientWidth;
+        var videoHeight=parseInt(videoWidth)*480/800;
+        var player = new tvp.Player(videoWidth, videoHeight);//视频高宽
+        player.setCurVideo(video);
+        player.addParam("autoplay","0");//是否自动播放，1为自动播放，0为不自动播放
+        player.addParam("wmode","opaque");
+        player.addParam("flashskin", "http://imgcache.qq.com/minivideo_v1/vd/res/skins/TencentPlayerMiniSkin.swf");//是否调用精简皮肤，不使用则删掉此行代码
+        player.write("video");
+    })();
+    </script>
+{% endhighlight %}
+
+### 2.兼容各种浏览器-自己视频(flv格式) ###
+
+{% highlight ruby %}
+    <embed src="Flvplayer.swf" allowfullscreen="true" flashvars="vcastr_file=sanwanchufang-ganjianyinxueyu2.flv&LogoText=" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="600" height="400"></embed>
+{% endhighlight %}
+
+demo:[video-flv](./resources/demo/video_flv/index.html)
+
+### 3.现代浏览器-video标签 ###
+
+{% highlight ruby %}
+    <video id="video" width="600" height="400" controls preload="auto" poster="/static/img/poster_fish.jpg">
+        <source src="http://video.yzg365.com/static/video/sanwanchufang-ganjianyinxueyu.mp4"></source>
+        <source src="http://video.yzg365.com/static/video/sanwanchufang-ganjianyinxueyu.webm"></source>
+    </video>
+{% endhighlight %}

@@ -22,37 +22,37 @@ Function.prototype.method=function (name,func){
 String.method("add",function (str){
   return this+str;
 });
-document.writeln(("str").add("str")+"<br>");	// "strstr"
+document.writeln(("str").add("str")+"<br>");    // "strstr"
 
 Number.method("add",function (num){
   return this+num;
 });
-document.writeln((2).add(3)+"<br>");	// 5
+document.writeln((2).add(3)+"<br>");    // 5
 
 Function.method("copy",function (){
   return arguments[0];
 });
-document.writeln((function (){}).copy(2)+"<br>");	// 2
+document.writeln((function (){}).copy(2)+"<br>");   // 2
 
 Array.method("add",function (){
   return this;
 });
-document.writeln([1,2,3].add()+"<br>");		// [1,2,3]
+document.writeln([1,2,3].add()+"<br>");     // [1,2,3]
 
 Object.method("add",function (){
-	return this.name;
+  return this.name;
 });
-document.writeln({name:"qing"}.add()+"<br>");	// "qing"
+document.writeln({name:"qing"}.add()+"<br>");   // "qing"
 {% endhighlight %}
 
 既然 String、Number、Function、Array、Object 都能够使用 method() 方法，肯定是继承自 Function 的原型对象 Function.prototype, 那么可以简单的认为 String、Number、Function、Array、Object 都是 Function 的实例，验证如下
 
 {% highlight ruby %}
-String instanceof Function	//true
-Number instanceof Function	//true
-Function instanceof Function	//true
-Array instanceof Function	//true
-Object instanceof Function	//true
+String instanceof Function  //true
+Number instanceof Function  //true
+Function instanceof Function    //true
+Array instanceof Function   //true
+Object instanceof Function  //true
 {% endhighlight %}
 
 另一方面，下面的代码构造的method()方法对 String、Number、Function、Array、Object 也都是有效的，所以 String、Number、Function、Array、Object 也可以认为都是 Object 的实例
@@ -67,11 +67,11 @@ Object.prototype.method=function (name,func){
 {% endhighlight %}
 
 {% highlight ruby %}
-String instanceof Object	//true
-Number instanceof Object	//true
-Function instanceof Object	//true
-Array instanceof Object	//true
-Object instanceof Object	//true
+String instanceof Object    //true
+Number instanceof Object    //true
+Function instanceof Object    //true
+Array instanceof Object    //true
+Object instanceof Object    //true
 {% endhighlight %}
 
 <h2>有趣的问题</h2>
@@ -79,20 +79,13 @@ Object instanceof Object	//true
 由前面的叙述可以得到下面的表达式
 
 {% highlight ruby %}
-Object instanceof Function	//true
-Function instanceof Object	//true
-{% endhighlight %}
-
-另外，进一步探索 Function 与 Object 的关系会有下面的现象
-
-{% highlight ruby %}
-Object.constructor === Function	//true
-but
-Function.prototype !== Object	//true
+Object instanceof Function  //true
+Function instanceof Object  //true
 {% endhighlight %}
 
 另外，还有
 
 {% highlight ruby %}
-Function.constructor === Function	//true
+Object.constructor === Function   //true
+Function.constructor === Function   //true
 {% endhighlight %}
