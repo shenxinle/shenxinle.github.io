@@ -10,14 +10,18 @@ categories: jekyll update
  
 资源：[https://icomoon.io/app/](https://icomoon.io/app/ "icomoon")
 
-原理：使用 @font-face 调用了eot、svg、ttf、woff四种字体，使用class:before 调用具体icon。
+[http://www.iconfont.cn/](http://www.iconfont.cn/ "阿里iconfont")
+
+原理：使用 @font-face 调用了eot、svg、ttf、woff四种字体，使用::before 调用具体icon。(IE7-不支持::before,直接用字符实体)
 
 使用：上传svg，下载font，通过 link 标签调用style.css，使用时直接添加类名即可。
 
 ### 2.兼容IE时使用 png sprites ###
 
-资源：[https://icomoon.io/app/](https://icomoon.io/app/ "icomoon") (下载单个icon的png格式)  <br>
-	[http://spritepad.wearekiss.com/](http://spritepad.wearekiss.com/ "spritepad") （组合雪碧图 user:shenxinle2009@163.com/670214）
+资源：[https://icomoon.io/app/](https://icomoon.io/app/ "icomoon") (下载单个icon的png格式)
+
+[http://spritepad.wearekiss.com/](http://spritepad.wearekiss.com/ "spritepad")（组合雪碧图）
+
 [http://www.spritecow.com](http://www.spritecow.com "spritecow") (根据雪碧图提取所用部分的 background-position / width / height)
 
 原理：background-position

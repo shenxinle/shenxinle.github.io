@@ -6,8 +6,8 @@
 </description>
     <link>http://shenxinle.github.io/</link>
     <atom:link href="http://shenxinle.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 23 Aug 2015 14:27:10 +0800</pubDate>
-    <lastBuildDate>Sun, 23 Aug 2015 14:27:10 +0800</lastBuildDate>
+    <pubDate>Thu, 27 Aug 2015 11:18:06 +0800</pubDate>
+    <lastBuildDate>Thu, 27 Aug 2015 11:18:06 +0800</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
     
       <item>
@@ -172,15 +172,19 @@
 
 &lt;p&gt;资源：&lt;a href=&quot;https://icomoon.io/app/&quot; title=&quot;icomoon&quot;&gt;https://icomoon.io/app/&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;原理：使用 @font-face 调用了eot、svg、ttf、woff四种字体，使用class:before 调用具体icon。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://www.iconfont.cn/&quot; title=&quot;阿里iconfont&quot;&gt;http://www.iconfont.cn/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;原理：使用 @font-face 调用了eot、svg、ttf、woff四种字体，使用::before 调用具体icon。(IE7-不支持::before,直接用字符实体)&lt;/p&gt;
 
 &lt;p&gt;使用：上传svg，下载font，通过 link 标签调用style.css，使用时直接添加类名即可。&lt;/p&gt;
 
 &lt;h3 id=&quot;ie-png-sprites&quot;&gt;2.兼容IE时使用 png sprites&lt;/h3&gt;
 
-&lt;p&gt;资源：&lt;a href=&quot;https://icomoon.io/app/&quot; title=&quot;icomoon&quot;&gt;https://icomoon.io/app/&lt;/a&gt; (下载单个icon的png格式)  &lt;br /&gt;
-	&lt;a href=&quot;http://spritepad.wearekiss.com/&quot; title=&quot;spritepad&quot;&gt;http://spritepad.wearekiss.com/&lt;/a&gt; （组合雪碧图 user:shenxinle2009@163.com/670214）
-&lt;a href=&quot;http://www.spritecow.com&quot; title=&quot;spritecow&quot;&gt;http://www.spritecow.com&lt;/a&gt; (根据雪碧图提取所用部分的 background-position / width / height)&lt;/p&gt;
+&lt;p&gt;资源：&lt;a href=&quot;https://icomoon.io/app/&quot; title=&quot;icomoon&quot;&gt;https://icomoon.io/app/&lt;/a&gt; (下载单个icon的png格式)&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://spritepad.wearekiss.com/&quot; title=&quot;spritepad&quot;&gt;http://spritepad.wearekiss.com/&lt;/a&gt;（组合雪碧图）&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.spritecow.com&quot; title=&quot;spritecow&quot;&gt;http://www.spritecow.com&lt;/a&gt; (根据雪碧图提取所用部分的 background-position / width / height)&lt;/p&gt;
 
 &lt;p&gt;原理：background-position&lt;/p&gt;
 
