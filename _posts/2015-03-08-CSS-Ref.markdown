@@ -15,11 +15,18 @@ CSS(Cascading Style Sheets，层叠样式表) 实现了将样式与内容分离�
 
 {% highlight ruby %}
 background:red url(i/baby.jpg) no-repeat 0 0 fixed;
-background-color:red/#ff0000/rgb(255,0,0) ;  //默认值为transparent.
+background-color:red/#ff0000/rgb(255,0,0,.5) ;  //默认值为transparent.
 background-image:url(i/baby.jpg);
 background-repeat:repeat/repeat-x/repeat-y/no-repeat;       //默认为repeat.
 background-position:100px 50px/center/left/right/top/bottom;
 background-attachment:fixed/scroll;
+
+background-origin: border-box/padding-box/content-box;
+background-clip: border-box/padding-box/content-box;
+background-size: auto/100px 100px/100% 100%/cover(覆盖，长比边有部分不显示)/contain(一边缩放至边缘，另一边可能未填满);
+
+background: color url position/size no-repeat ...;
+(移动端sprite可以用bgp定位，用bgs缩放)
 {% endhighlight %}
 
 <h2>text</h2>
@@ -74,4 +81,118 @@ outline:2px dotted/dashed greed;    //位于border外围。
 position:relative/absolute/fixed;
 float:left/right;
 clear:both/left/right;
+{% endhighlight %}
+
+##border-radius
+
+{% highlight ruby %}
+border-radius: 10px;
+border-radius: 10px 0 10px 0;(左上开始，顺时针)
+border-left-top-radius: 10px;
+{% endhighlight %}
+
+##box-shadow
+
+{% highlight ruby %}
+box-shadow: x偏移 y偏移 模糊半径 扩展半径 color 投影方式(outset(默认)/inset)
+
+利用 box-shadow 和 animation 的加载动画(见代码下面)：
+<div class="loading"></div>
+.loading {
+    width: .5em;
+    height: .5em;
+    border-radius: 50%;
+    margin: 0 auto;
+    box-shadow: 1em 0 0 0 rgba(0,0,0,.1),
+        .707em .707em 0 0 rgba(0,0,0,.2),
+        0 1em 0 0 rgba(0,0,0,.3),
+        -.707em .707em 0 0 rgba(0,0,0,.4),
+        -1em 0 0 0 rgba(0,0,0,.5),
+        -.707em -.707em 0 0 rgba(0,0,0,.6),
+        0 -1em 0 0 rgba(0,0,0,.7),
+        .707em -.707em 0 0 rgba(0,0,0,.8);
+    animation: loading 1s linear infinite;
+}
+@keyframes loading {
+    0% {transform: rotate(0);}
+    12% {transform: rotate(45deg);}
+    25% {transform: rotate(90deg);}
+    37% {transform: rotate(135deg);}
+    50% {transform: rotate(180deg);}
+    62% {transform: rotate(225deg);}
+    75% {transform: rotate(270deg);}
+    87% {transform: rotate(315deg);}
+    100% {transform: rotate(360deg);}
+}
+
+{% endhighlight %}
+<style type="text/css" media="screen">
+.loading {
+    width: .5em;
+    height: .5em;
+    border-radius: 50%;
+    margin: 0 auto;
+    box-shadow: 1em 0 0 0 rgba(0,0,0,.1),
+        .707em .707em 0 0 rgba(0,0,0,.2),
+        0 1em 0 0 rgba(0,0,0,.3),
+        -.707em .707em 0 0 rgba(0,0,0,.4),
+        -1em 0 0 0 rgba(0,0,0,.5),
+        -.707em -.707em 0 0 rgba(0,0,0,.6),
+        0 -1em 0 0 rgba(0,0,0,.7),
+        .707em -.707em 0 0 rgba(0,0,0,.8);
+    animation: loading 1s linear infinite;
+}
+@keyframes loading {
+    0% {transform: rotate(0);}
+    12% {transform: rotate(45deg);}
+    25% {transform: rotate(90deg);}
+    37% {transform: rotate(135deg);}
+    50% {transform: rotate(180deg);}
+    62% {transform: rotate(225deg);}
+    75% {transform: rotate(270deg);}
+    87% {transform: rotate(315deg);}
+    100% {transform: rotate(360deg);}
+}
+</style>
+<div class="loading"></div>
+
+##transform
+
+{% highlight ruby %}
+transform-origin: x-axis(left/center/right/length/%) y-axis;
+transform: rotate(30deg);
+transform: skew(30deg, 20deg)/skewX(30deg)/skewY(20deg);
+transform: scale(2, 2)/scaleX(2)/scaleY(2);
+transform: translate(x, y, z)/translateX(x)/...;
+
+transform: matrix(a, b, c, d, e, f);
+{% endhighlight %}
+
+##transition
+
+{% highlight ruby %}
+transition-property: width/bgc/transform...;
+transition-duration: 1s;
+transition-timing-function: ease/ease-in/ease-out/ease-in-out/linear;
+transition-delay: .5s;
+
+transition: all 1s ease-in .5s;
+{% endhighlight %}
+
+##animation
+
+{% highlight ruby %}
+@keyframes animationName {
+    0%/from: {...}
+    10%: {...}
+    .
+    .
+    100%/to: {...}
+}
+animation-name: animationName;
+animation-duration: 1s;
+animation-timing-function: ease/ease-in/ease-out/ease-in-out/linear/cubic-bezier;
+animation-delay: .5s;
+animation-iteration-count: 5/infinite;
+animation-direction: normal/alternate;
 {% endhighlight %}
