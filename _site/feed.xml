@@ -6,9 +6,113 @@
 </description>
     <link>http://shenxinle.github.io/</link>
     <atom:link href="http://shenxinle.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 01 Sep 2015 14:07:10 +0800</pubDate>
-    <lastBuildDate>Tue, 01 Sep 2015 14:07:10 +0800</lastBuildDate>
+    <pubDate>Sat, 12 Mar 2016 13:27:06 +0800</pubDate>
+    <lastBuildDate>Sat, 12 Mar 2016 13:27:06 +0800</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
+    
+      <item>
+        <title>Git guide</title>
+        <description>&lt;h3 id=&quot;section&quot;&gt;创建新仓库&lt;/h3&gt;
+
+&lt;p&gt;在新文件夹中&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;git init
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;section-1&quot;&gt;检出仓库&lt;/h3&gt;
+
+&lt;p&gt;创建本地仓库的克隆版本&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;git clone path/to/repository
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;从远程服务器克隆&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;git clone username@host:/path/to/repository
+如：
+git clone git@github.com:shenxinle/myUtils.git
+或
+git clone https://github.com/shenxinle/myUtils.git
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;section-2&quot;&gt;添加与提交&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;git add filename / git add *
+git commit -m &#39;message&#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;section-3&quot;&gt;提交到远程仓库&lt;/h3&gt;
+
+&lt;p&gt;连接&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;git remote add origin &amp;lt;server&amp;gt;
+如：
+git remote add origin git@github.com:shenxinle/myUtils.git
+git remote add origin https://github.com/shenxinle/myUtils.git
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;提交&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;git push origin master(or other branch)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;section-4&quot;&gt;分支&lt;/h3&gt;
+
+&lt;p&gt;创建分支&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;git checkout -b newBranch
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;切回主分支&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;git checkout master
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;删除分支&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;git branch -d newBranch
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;删除远程分支&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;git push origin :newBranch
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;提交新分支到远程仓库&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;git push origin newBranch
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;section-5&quot;&gt;更新与合并&lt;/h3&gt;
+
+&lt;p&gt;更新本地仓库&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;git pull
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;合并分支&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;git merge &amp;lt;branch&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;section-6&quot;&gt;标签&lt;/h3&gt;
+
+&lt;p&gt;创建标签&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;git tag 1.0.0 &amp;lt;commit id&amp;gt;
+通过 git log 查看最近 commit 的 id
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+        <pubDate>Sun, 06 Sep 2015 00:00:00 +0800</pubDate>
+        <link>http://shenxinle.github.io/jekyll/update/2015/09/06/git-guide</link>
+        <guid isPermaLink="true">http://shenxinle.github.io/jekyll/update/2015/09/06/git-guide</guid>
+        
+        
+        <category>jekyll</category>
+        
+        <category>update</category>
+        
+      </item>
     
       <item>
         <title>Mobile dev</title>
